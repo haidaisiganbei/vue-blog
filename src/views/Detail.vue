@@ -1,5 +1,5 @@
 <template>
- <div>
+ <div class="detail">
    <div>{{detail.title}}</div>
    <div>{{detail.date}}</div>
    <div v-html="detail.content"></div>
@@ -17,9 +17,7 @@
 
    },
    created(e){
-     console.log(e);
-
-     this.axios.get("/blog/98").then(res=>{
+     this.axios.get("/blog/"+this.$route.query.id).then(res=>{
        console.log(res);
 
        this.detail = res.data.data
@@ -28,7 +26,10 @@
  }
 </script>
 
-<style>
-
+<style scoped>
+.detail{
+  margin:  auto;
+  width: 50%
+}
 
 </style>

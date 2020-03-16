@@ -1,9 +1,11 @@
 <template>
   <div class="home">
-    <!-- <Nav></Nav>
-    <router-link to="/about">关于我</router-link>-->
     <div class="blogs">
-      <BlogItem v-for="(blog,index) in blogs"  :key="index" :info="blog"></BlogItem>
+      <BlogItem
+        v-for="(blog,index) in blogs"
+        :key="index"
+        :info="blog"
+      ></BlogItem>
     </div>
   </div>
 </template>
@@ -21,27 +23,48 @@ export default {
     BlogItem,
     Nav
   },
-  data() {
+  data () {
     return {
       blogs: [
-        {
-          date: "2020.03.14",
-          title: "this is my first blog"
-        },
-        {
-          date: "2020.03.14",
-          title:
-            "this is my first blogthis is my first blogthis is my first blog "
-        },
-        {
-          date: "2020.03.14",
-          title: "this is my first blog"
-        }
+        // {
+        //   id: 1,
+        //   date: "2020.03.14",
+        //   title: "this is my first blog"
+        // },
+        // {
+        //   id: 2,
+        //   date: "2020.03.14",
+        //   title:
+        //     "this is my first blogthis is my first blogthis is my first blog "
+        // },
+        // {
+        //   id: 3,
+        //   date: "2020.03.14",
+        //   title: "this is my first blog"
+        // }
       ]
     };
   },
-  beforeCreate(){
+  methods: {
+    
+  },
+  beforeCreate () {
 
+  },
+  mounted(){
+    console.log(this.axios);
+    
+    let params = {
+      page:1,
+      size:10
+    }
+    this.axios({
+      url:"/blog/list",
+      method:"get",
+    }).then(res=>{
+      this.blogs = res.data.data
+    })
+   
   }
 };
 </script>

@@ -11,9 +11,19 @@ import 'mavon-editor/dist/css/index.css'
 // axios
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+
+// vue-particles
+import VueParticles from 'vue-particles'
+
+import VueDPlayer from 'vue-dplayer'
+import 'vue-dplayer/dist/vue-dplayer.css'
+
+
 Vue.config.productionTip = false
 Vue.use(ElementUI)
+Vue.use(VueDPlayer)
 Vue.use(mavonEditor)
+Vue.use(VueParticles)
 Vue.use(VueAxios, axios)
 
 

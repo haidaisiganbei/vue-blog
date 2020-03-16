@@ -1,5 +1,5 @@
 <template>
-  <div class="item">
+  <div class="item" @click="click">
     <div class="date">{{info.date}}</div>
     <div class="title">{{info.title}}</div>
   </div>
@@ -13,7 +13,12 @@ export default {
   data() {
     return {};
   },
-  components: {}
+  components: {},
+  methods:{
+    click(){
+      this.$router.push("/detail?id="+this.info.id)
+    }
+  }
 };
 </script>
 

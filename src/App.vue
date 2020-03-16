@@ -1,21 +1,31 @@
 <template>
   <div id="app">
-    <div class="name">es lin</div>
+    <div class="name">
+      <router-link to="/">es lin</router-link>
+    </div>
     <div class="link">
       <a href='https://github.com/haidaisiganbei'>
-        <img src="./assets/github.png"  />
+        <img src="./assets/github.png" />
       </a>
       <a href='https://weibo.com/3025005114/profile'>
-        <img src="./assets/weibo.png"  />
+        <img src="./assets/weibo.png" />
+      </a>
+      <a href="/edit">
+        <img src="./assets/edit.png" />
       </a>
     </div>
     <router-view />
+    <!-- <vue-particles color="#dedede">
+
+      
+    </vue-particles> -->
+
   </div>
 </template>
 <script>
 export default {
   components: {},
-  data(){
+  data () {
     return {
 
 
@@ -43,6 +53,6 @@ export default {
       background-size: 100% 100%;
       margin: 5px;
     }
-}
+  }
 }
 </style>
