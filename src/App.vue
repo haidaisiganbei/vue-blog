@@ -1,5 +1,12 @@
 <template>
   <div id="app">
+    <!-- <div class="music">
+        <Aplayer
+          autoplay
+          :music="music"
+          :list='list'
+        />
+      </div>
     <div class="name">
       <router-link to="/">es lin</router-link>
     </div>
@@ -13,21 +20,40 @@
       <a href="/edit">
         <img src="./assets/edit.png" />
       </a>
-    </div>
-    <router-view />
-    <!-- <vue-particles color="#dedede">
-
-      
-    </vue-particles> -->
-
+    </div> -->
+    <transition>
+      <router-view />
+    </transition>
   </div>
 </template>
 <script>
+import Aplayer from 'vue-aplayer'
 export default {
-  components: {},
+  components: {
+    Aplayer
+  },
   data () {
     return {
 
+      music: {
+        title: '浪客剑心 Departure',
+        artist: '日本ACG',
+        src: 'http://blog-lin.oss-cn-shenzhen.aliyuncs.com/mp3/1.mp3',
+        pic: 'http://blog-lin.oss-cn-shenzhen.aliyuncs.com/mp3/logo/1267.jpg'
+      },
+      list: [
+        {
+          title: '浪客剑心 Departure',
+          artist: '日本ACG',
+          src: 'http://blog-lin.oss-cn-shenzhen.aliyuncs.com/mp3/1.mp3',
+          pic: 'http://blog-lin.oss-cn-shenzhen.aliyuncs.com/mp3/logo/1267.jpg'
+        }, {
+          title: '永远同在 八音盒',
+          artist: '日本ACG',
+          src: 'http://blog-lin.oss-cn-shenzhen.aliyuncs.com/mp3/2.mp3',
+          pic: 'http://blog-lin.oss-cn-shenzhen.aliyuncs.com/mp3/logo/1267.jpg'
+        },
+      ]
 
 
     }
@@ -53,6 +79,12 @@ export default {
       background-size: 100% 100%;
       margin: 5px;
     }
+  }
+  .music {
+    position: fixed;
+    right: 0;
+    top: 30px;
+    max-width: 400px;
   }
 }
 </style>

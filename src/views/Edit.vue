@@ -19,6 +19,7 @@
                 type="date"
                 placeholder="选择日期"
                 style="width: 100%;"
+                 value-format="yyyy-MM-dd"
               ></el-date-picker>
             </el-col>
           </el-form-item>
@@ -29,7 +30,6 @@
     <el-row>
       <mavon-editor
         ref=md
-        :ishljs="true"
         @change="change"
         v-model="value"
         @imgAdd="$imgAdd"

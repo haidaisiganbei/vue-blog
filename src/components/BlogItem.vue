@@ -16,7 +16,14 @@ export default {
   components: {},
   methods:{
     click(){
-      this.$router.push("/detail?id="+this.info.id)
+      // this.$router.push("/detail?id="+this.info.id)
+      this.$router.push({
+        // path:'detail',
+        name:"detail",
+        query:{
+          id:this.info.id
+        }
+      })
     }
   }
 };
