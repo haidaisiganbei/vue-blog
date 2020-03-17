@@ -1,11 +1,26 @@
 <template>
-  <div class="home">
-    <div class="blogs">
-      <BlogItem
-        v-for="(blog,index) in blogs"
-        :key="index"
-        :info="blog"
-      ></BlogItem>
+  <div>
+    <div class="name">es lin
+    </div>
+    <div class="link">
+      <a href='https://github.com/haidaisiganbei'>
+        <img src="../assets/github.png" />
+      </a>
+      <a href='https://weibo.com/3025005114/profile'>
+        <img src="../assets/weibo.png" />
+      </a>
+      <a href="/edit">
+        <img src="../assets/edit.png" />
+      </a>
+    </div>
+    <div class="home">
+      <div class="blogs">
+        <BlogItem
+          v-for="(blog,index) in blogs"
+          :key="index"
+          :info="blog"
+        ></BlogItem>
+      </div>
     </div>
   </div>
 </template>
@@ -26,49 +41,38 @@ export default {
   data () {
     return {
       blogs: [
-        // {
-        //   id: 1,
-        //   date: "2020.03.14",
-        //   title: "this is my first blog"
-        // },
-        // {
-        //   id: 2,
-        //   date: "2020.03.14",
-        //   title:
-        //     "this is my first blogthis is my first blogthis is my first blog "
-        // },
-        // {
-        //   id: 3,
-        //   date: "2020.03.14",
-        //   title: "this is my first blog"
-        // }
+
       ]
     };
   },
   methods: {
-    
-  },
-  beforeCreate () {
 
   },
-  mounted(){
-    console.log(this.axios);
-    
-    let params = {
-      page:1,
-      size:10
-    }
+  mounted () {
     this.axios({
-      url:"/blog/list",
-      method:"get",
-    }).then(res=>{
+      url: "/blog/list",
+      method: "get",
+    }).then(res => {
       this.blogs = res.data.data
     })
-   
+
   }
 };
 </script>
 <style lang="less" scoped>
+.name {
+  font-size: 24px;
+  margin-top: 30px;
+}
+.link {
+  margin-top: 20px;
+  img {
+    width: 20px;
+    height: 20px;
+    background-size: 100% 100%;
+    margin: 5px;
+  }
+}
 .home {
   text-align: center;
   .blogs {
