@@ -1,5 +1,12 @@
 <template>
   <div>
+    <div class="music">
+        <Aplayer
+          autoplay
+          :music="music"
+          :list='list'
+        />
+      </div>
     <div class="name">es lin
     </div>
     <div class="link">
@@ -30,18 +37,38 @@
 import HelloWorld from "@/components/HelloWorld.vue";
 import BlogItem from "@/components/BlogItem.vue";
 import Nav from "@/components/Nav.vue";
-
+import Aplayer from 'vue-aplayer'
 export default {
   name: "Home",
   components: {
     HelloWorld,
     BlogItem,
-    Nav
+    Nav,
+    Aplayer
   },
   data () {
     return {
       blogs: [
 
+      ],
+         music: {
+        title: '浪客剑心 Departure',
+        artist: '日本ACG',
+        src: 'http://blog-lin.oss-cn-shenzhen.aliyuncs.com/mp3/1.mp3',
+        pic: 'http://blog-lin.oss-cn-shenzhen.aliyuncs.com/mp3/logo/1267.jpg'
+      },
+      list: [
+        {
+          title: '浪客剑心 Departure',
+          artist: '日本ACG',
+          src: 'http://blog-lin.oss-cn-shenzhen.aliyuncs.com/mp3/1.mp3',
+          pic: 'http://blog-lin.oss-cn-shenzhen.aliyuncs.com/mp3/logo/1267.jpg'
+        }, {
+          title: '永远同在 八音盒',
+          artist: '日本ACG',
+          src: 'http://blog-lin.oss-cn-shenzhen.aliyuncs.com/mp3/2.mp3',
+          pic: 'http://blog-lin.oss-cn-shenzhen.aliyuncs.com/mp3/logo/1267.jpg'
+        },
       ]
     };
   },
@@ -80,5 +107,11 @@ export default {
     margin: auto;
   }
 }
+  .music {
+    position: fixed;
+    right: 0;
+    top: 30px;
+    max-width: 400px;
+  }
 </style>>
 

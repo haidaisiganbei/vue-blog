@@ -20,43 +20,20 @@
       <a href="/edit">
         <img src="./assets/edit.png" />
       </a>
-    </div> -->
-    <transition>
+    </div>-->
+    <transition name="fade">
       <router-view />
     </transition>
   </div>
 </template>
 <script>
-import Aplayer from 'vue-aplayer'
+import Aplayer from "vue-aplayer";
 export default {
   components: {
     Aplayer
   },
-  data () {
-    return {
-
-      music: {
-        title: '浪客剑心 Departure',
-        artist: '日本ACG',
-        src: 'http://blog-lin.oss-cn-shenzhen.aliyuncs.com/mp3/1.mp3',
-        pic: 'http://blog-lin.oss-cn-shenzhen.aliyuncs.com/mp3/logo/1267.jpg'
-      },
-      list: [
-        {
-          title: '浪客剑心 Departure',
-          artist: '日本ACG',
-          src: 'http://blog-lin.oss-cn-shenzhen.aliyuncs.com/mp3/1.mp3',
-          pic: 'http://blog-lin.oss-cn-shenzhen.aliyuncs.com/mp3/logo/1267.jpg'
-        }, {
-          title: '永远同在 八音盒',
-          artist: '日本ACG',
-          src: 'http://blog-lin.oss-cn-shenzhen.aliyuncs.com/mp3/2.mp3',
-          pic: 'http://blog-lin.oss-cn-shenzhen.aliyuncs.com/mp3/logo/1267.jpg'
-        },
-      ]
-
-
-    }
+  data() {
+    return {};
   }
 };
 </script>
@@ -67,24 +44,13 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
   text-align: center;
-  .name {
-    font-size: 24px;
-    margin-top: 30px;
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity 0.5s;
   }
-  .link {
-    margin-top: 20px;
-    img {
-      width: 20px;
-      height: 20px;
-      background-size: 100% 100%;
-      margin: 5px;
-    }
+  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
   }
-  .music {
-    position: fixed;
-    right: 0;
-    top: 30px;
-    max-width: 400px;
-  }
+
 }
 </style>
