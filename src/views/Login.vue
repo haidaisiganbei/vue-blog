@@ -27,14 +27,30 @@ export default {
   data() {
     return {
       form: {
-        username: "",
-        password: ""
+        username: "zhangsan",
+        password: "123"
       }
     };
   },
   components: {},
   methods: {
-    onSubmit() {}
+    onSubmit() {
+      console.log(this);
+      this.axios({
+        method:"post",
+        url:"/login",
+        data:this.form
+      }).then(res=>{
+        console.log(res);
+        
+        if(res.data.code==200){
+          alert("登录成功")
+          this.$store.commit("setToken",res.data.data)
+        }else{
+          alert("登录失败")
+        }
+      })
+    }
   }
 };
 </script>

@@ -40,7 +40,10 @@ const routes = [
   {
     path: '/edit',
     name: 'Edit',
-    component: () => import('../views/Edit.vue')
+    component: () => import('../views/Edit.vue'),
+    meta:{
+      requireAuth:true
+    }
   },
   {
     path: '*',
@@ -53,6 +56,15 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
+})
+
+router.beforeEach((to,from,next)=>{
+  // const token = store.state.token?store.state.token:window.sessionStorage.getItem("token")
+  if(to.meta.requireAuth){
+    next("/login")
+  }else{
+    next()
+  }
 })
 
 export default router

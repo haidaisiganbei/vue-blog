@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import { Loading } from 'element-ui';
 export default {
   data () {
     return {
@@ -19,12 +20,31 @@ export default {
   components: {
 
   },
+  methods: {
+    fetchData () {
+      let loadingInstance = Loading.service({ fullscreen: true, text: "数据加载中" });
+      this.axios.get("/blog/" + this.$route.query.id).then(res => {
+        console.log(res);
+        if (res.data.code == 200) {
+          this.detail = res.data.data
+          setTimeout(() => {
+            loadingInstance.close();
+          }, 2000);
+        } else {
+          loadingInstance.close();
+          this.$message.error('加载失败');
+          // this.$router.push('/404')
+        }
+      })
+    }
+  },
   created (e) {
-    this.axios.get("/blog/" + this.$route.query.id).then(res => {
-      console.log(res);
+    this.fetchData()
 
-      this.detail = res.data.data
-    })
+  },
+  watch: {
+    // 如果路由有变化，会再次执行该方法
+    '$route': 'fetchData'
   }
 }
 </script>
