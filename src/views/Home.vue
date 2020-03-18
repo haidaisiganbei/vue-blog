@@ -48,12 +48,16 @@ export default {
   methods: {
 
   },
-  mounted () {
+  created () {
     this.axios({
       url: "/blog/list",
       method: "get",
     }).then(res => {
-      this.blogs = res.data.data
+      if(res.data.code==200){
+        this.blogs = res.data.data
+      }else{
+        this.$router.replace("/login")
+      }
     })
 
   }
