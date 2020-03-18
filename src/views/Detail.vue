@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import { Loading } from 'element-ui';
 export default {
   data () {
     return {
@@ -20,10 +21,13 @@ export default {
 
   },
   created (e) {
+    let loadingInstance = Loading.service({ fullscreen: true, text: "数据加载中" });
     this.axios.get("/blog/" + this.$route.query.id).then(res => {
       console.log(res);
-
       this.detail = res.data.data
+      setTimeout(() => {
+        loadingInstance.close();
+      }, 2000);
     })
   }
 }
