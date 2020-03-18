@@ -10,7 +10,8 @@
 </template>
 
 <script>
-import { Loading } from 'element-ui';
+
+import {getBlog} from '@/api/blog'
 export default {
   data () {
     return {
@@ -22,18 +23,22 @@ export default {
   },
   methods: {
     fetchData () {
-      let loadingInstance = Loading.service({ fullscreen: true, text: "数据加载中" });
-      this.axios.get("/blog/" + this.$route.query.id).then(res => {
-        console.log(res);
+      // let loadingInstance = Loading.service({ fullscreen: true, text: "数据加载中" });
+      // this.axios.get("/blog/" + this.$route.query.id).then(res => {
+      //   console.log(res);
+      //   if (res.data.code == 200) {
+      //     this.detail = res.data.data
+      //     setTimeout(() => {
+      //       loadingInstance.close();
+      //     }, 2000);
+      //   } else {
+      //     loadingInstance.close();
+      //     this.$message.error('加载失败');
+      //   }
+      // })
+      getBlog({id:this.$route.query.id}).then(res=>{
         if (res.data.code == 200) {
           this.detail = res.data.data
-          setTimeout(() => {
-            loadingInstance.close();
-          }, 2000);
-        } else {
-          loadingInstance.close();
-          this.$message.error('加载失败');
-          // this.$router.push('/404')
         }
       })
     }

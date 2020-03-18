@@ -54,10 +54,6 @@ export default {
     };
   },
   components: {},
-  mounted () {
-    console.log(this);
-
-  },
   methods: {
     change (value, render) {
       this.content = render;

@@ -1,36 +1,20 @@
 <template>
   <div id="app">
-    <!-- <div class="music">
-        <Aplayer
-          autoplay
-          :music="music"
-          :list='list'
-        />
-      </div>
-    <div class="name">
-      <router-link to="/">es lin</router-link>
-    </div>
-    <div class="link">
-      <a href='https://github.com/haidaisiganbei'>
-        <img src="./assets/github.png" />
-      </a>
-      <a href='https://weibo.com/3025005114/profile'>
-        <img src="./assets/weibo.png" />
-      </a>
-      <a href="/edit">
-        <img src="./assets/edit.png" />
-      </a>
-    </div>-->
     <transition name="fade">
       <router-view />
     </transition>
+      <Player></Player>
+
+    <!-- <Aplayer /> -->
+
   </div>
 </template>
 <script>
-import Aplayer from "vue-aplayer";
+import Aplayer from "@/components/Aplayer.vue";
+import Player from 'zw-player'
 export default {
   components: {
-    Aplayer
+    Aplayer,Player
   },
   data() {
     return {};
@@ -51,6 +35,5 @@ export default {
   .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
     opacity: 0;
   }
-
 }
 </style>

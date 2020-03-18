@@ -1,12 +1,12 @@
 <template>
   <div>
-    <div class="music">
+    <!-- <div class="music">
         <Aplayer
           autoplay
           :music="music"
           :list='list'
         />
-      </div>
+      </div> -->
     <div class="name">es lin
     </div>
     <div class="link">
@@ -38,6 +38,7 @@ import HelloWorld from "@/components/HelloWorld.vue";
 import BlogItem from "@/components/BlogItem.vue";
 import Nav from "@/components/Nav.vue";
 import Aplayer from 'vue-aplayer'
+import {getBlogs} from '@/api/blog'
 export default {
   name: "Home",
   components: {
@@ -76,10 +77,7 @@ export default {
 
   },
   created () {
-    this.axios({
-      url: "/blog/list",
-      method: "get",
-    }).then(res => {
+    getBlogs().then(res=>{
       if(res.data.code==200){
         this.blogs = res.data.data
       }else{

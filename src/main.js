@@ -9,8 +9,8 @@ import 'element-ui/lib/theme-chalk/index.css';
 import mavonEditor from 'mavon-editor'
 import 'mavon-editor/dist/css/index.css'
 // axios
-import axios from 'axios'
-import VueAxios from 'vue-axios'
+// import axios from 'axios'
+// import VueAxios from 'vue-axios'
 
 // vue-particles
 import VueParticles from 'vue-particles'
@@ -24,7 +24,7 @@ Vue.use(ElementUI)
 Vue.use(VueDPlayer)
 Vue.use(mavonEditor)
 Vue.use(VueParticles)
-Vue.use(VueAxios, axios)
+// Vue.use(VueAxios, axios)
 
 
 new Vue({
